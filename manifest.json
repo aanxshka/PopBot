@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "Keyword Sound Detector",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "chrome://favicon/",
+      "webNavigation",
+      "webRequest",
+      "webRequestBlocking"
+    ],
+    "action": {
+      "default_icon": "icon.png",
+      "default_popup": "hello.html"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "background.service_worker": {
+      "service_worker": ["background.js"],
+      "persistent": true
+      
+    },
+    "icons": {
+      "48": "icon.png"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["images/*.jpg"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+}
+
